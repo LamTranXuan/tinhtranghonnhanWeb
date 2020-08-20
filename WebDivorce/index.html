@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KNN Algorithm</title>
+    <title>Tình Trạng Hôn Nhân</title>
     <!-- Import Bootstrap css, js, font awesome here -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
@@ -37,719 +37,724 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <!-- <img src="assets/img/logo.png"  alt=""/> -->
-                    <h6>Website khảo sát tình trạng hôn nhân</h6>
+                <a class="navbar-brand" href="../index.html#header">
+                    <img src="assets/img/log1.png"  alt=""/>
+                    <h6>Website dự đoán tình trạng hôn nhân</h6>
                 </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="../index.html#header">TRANG CHỦ</a></li>
-                    <li><a href="./index.html">DỰ ĐOÁN</a></li>
+                    <li><a href="./index.html#header">DỰ ĐOÁN</a></li>
                     <li><a href="../index.html#contact">LIÊN HỆ</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <!-- NAVBAR END  -->
-    
-    <div class="container">
-        <nav id="myHeader" class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-            <div class=" container row">
-                <h4>Trần Xuân Lâm</h4>
-                <h6>Website khảo sát tình trạng hôn nhân</h6>
+    <div id="header">
+        <!-- <div class="container">
+            <nav id="myHeader" class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+                <div class=" container row">
+                    <h4>Trần Xuân Lâm</h4>
+                    <h6>Website khảo sát tình trạng hôn nhân</h6>
+                </div>
+            </nav>
+        </div> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" role="tab" data-toggle='tab' href="#time">Dành Thời Gian Cho Nhau</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle='tab' href="#understanding">Hiểu Nhau</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle='tab' href="#ensemble">Hòa Hợp Nhau</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle='tab' href="#discussion">Thảo Luận</a></li>
+                        <li class="nav-item"><a class="nav-link" role="tab" data-toggle='tab' href="#viewpoint">Quan Điểm</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <input type="button" class="btn btn-primary" value="Dự Đoán" onclick="predictDivorce();" />
+                    <!-- <button class="btn btn-primary" id="myBtn">Dự Đoán</button> -->
+                </div>
             </div>
-        </nav>
+        </div>
+        <div class="container tab-content">
+            <!-- Danh thoi gian cho nhau -->
+            <div id="time" class=" tab-pane fade in active">
+                <div class='row'>
+                    <div class="col-sm-10">1. Thời gian tôi dành cho vợ/chồng thật đặc biệt đối với chúng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr5">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">2. Chúng tôi gần như không bao giờ có thời gian ở nhà như là cặp đôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr6">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">3. Tôi tận hưởng kỳ nghỉ của chúng tôi với vợ/chồng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr8">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">4. Tôi thích đi du lịch cùng vợ/chồng.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr9">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hieu nhau -->
+            <div id='understanding' class="tab-pane fade">
+                <div class='row'>
+                    <div class="col-sm-10">1. Tôi biết món ăn yêu thích của vợ / chồng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr23">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">2. Tôi có thể nói cho bạn biết loại căng thẳng mà vợ / chồng tôi đang phải đối mặt trong cuộc sống của cô ấy / anh ấy.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr24">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">3. Tôi có kiến ​​thức về thế giới nội tâm của vợ / chồng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr25">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">4. Tôi biết những lo lắng cơ bản của vợ / chồng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr26">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">5. Tôi biết nguồn căng thẳng hiện tại của vợ / chồng tôi là gì.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr27">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">6. Tôi biết hy vọng và mong muốn của vợ / chồng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr28">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">7. Tôi biết chính xác những gì vợ/chồng tôi thích.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr21">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">8. Tôi biết vợ/chồng của tôi muốn được chăm sóc như thế nào khi cô ấy / anh ấy bị ốm.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr22">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hòa hợp nhau -->
+            <div id='ensemble' class='tab-pane fade'>
+                <div class='row'>
+                    <div class="col-sm-10">1. Tôi biết bạn bè của vợ / chồng tôi và các mối quan hệ xã hội của họ.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr30">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">2. Tôi biết chúng ta có thể bỏ qua sự khác biệt của mình, ngay cả khi đôi khi mọi thứ trở nên khó khăn.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr2">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">3. Chúng tôi giống như hai người xa lạ có chung môi trường ở nhà hơn là gia đình.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr7">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">4. Hầu hết các mục tiêu của chúng tôi là chung cho vợ / chồng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr10">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">5. Tôi cảm thấy hung hăng khi cãi nhau với vợ / chồng.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr31">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">6. Tôi ghét cách vợ / chồng của tôi mở một chủ đề.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr38">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">7.Khi tôi nói chuyện với vợ/chồng của mình về điều gì đó, sự bình tĩnh của tôi đột nhiên bị phá vỡ.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr41">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">8. Đôi khi tôi nghĩ rằng thật tốt cho tôi khi tôi rời khỏi nhà một thời gian.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr44">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">9. Tôi thà im lặng hơn là cãi vã với vợ / chồng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr45">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">10. Những trận đánh nhau thường xảy ra đột ngột.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr39">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">11. Chúng tôi chỉ bắt đầu một cuộc chiến trước khi tôi biết chuyện gì đang xảy ra.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr40">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">12. ​​46.   Ngay cả khi tôi đúng trong cuộc tranh luận, tôi khát khao không làm mất lòng bên kia.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr46">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">13. Khi tôi thảo luận với vợ/chồng của mình, tôi im lặng vì tôi sợ không thể kiềm chế cơn giận của mình.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr47">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">14. Tôi không liên quan gì đến những gì tôi đã bị buộc tội.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr49">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">15. Tôi biết vợ/chồng của mình rất tốt.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr29">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thảo luận -->
+            <div id='discussion' class='tab-pane fade'>
+                <div class='row'>
+                    <div class="col-sm-10">1. Nếu một trong số chúng tôi xin lỗi khi cuộc thảo luận của chúng tôi xấu đi, cuộc thảo luận kết thúc.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr1">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">2. Khi chúng tôi cần, chúng tôi có thể trao đổi với vợ / chồng của tôi ngay từ đầu và sửa nó.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr3">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">3. Khi tôi tranh cãi với vợ/chồng tôi, cuối cùng tôi sẽ liên lạc với cô/anh ấy.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr4">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">4. Khi thảo luận với vợ/chồng của tôi, tôi thường sử dụng các thành ngữ như 'Bạn luôn luôn' hoặc 'Bạn không bao giờ'.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr32">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">5. Tôi có thể sử dụng những tuyên bố tiêu cực về tính cách của vợ / chồng tôi trong các cuộc thảo luận của chúng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr33">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">6. Tôi có thể sử dụng các biểu hiện xúc phạm trong các cuộc thảo luận của chúng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr34">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">7. Tôi có thể xúc phạm vợ/chồng của mình trong các cuộc thảo luận của chúng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr35">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">8. Tôi có thể bị sỉ nhục khi chúng tôi thảo luận.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr36">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">9. Cuộc thảo luận của tôi với vợ/chồng của tôi không bình tĩnh.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr37">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">10. Khi tôi tranh cãi với vợ, nó chỉ nổ ra và tôi không nói một lời.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr42">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">11. Tôi chủ yếu muốn làm dịu môi trường một chút.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr43">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">12. Tôi sẽ không ngần ngại nói với vợ / chồng của tôi về sự bất cập của cô ấy / anh ấy.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr52">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">13. Khi trao đổi, tôi nhắc nhở cô/anh ấy về những vấn đề chưa thỏa đáng của vợ/chồng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr53">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">14. Tôi không ngại nói với vợ / chồng mình về sự kém cỏi của anh ấy / cô ấy.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr54">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quan điểm -->
+            <div id='viewpoint' class='tab-pane fade'>
+                <div class='row'>
+                    <div class="col-sm-10">1. Tôi thực sự không phải là người có tội về những gì tôi bị buộc tội.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr50">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">2. Tôi không phải là người sai về các vấn đề ở nhà.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr51">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">3. Vợ/chồng tôi và tôi có những giá trị tương đồng nhau về quyền tự do cá nhân.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr12">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">4. Vợ tôi và tôi có những giá trị tương tự về sự tin tưởng.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr20">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">5. Vợ chồng tôi có những trò giải trí giống nhau.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr13">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">6. Hầu hết các mục tiêu của chúng ta đối với mọi người (trẻ em, bạn bè, v.v.) đều giống nhau.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr14">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">7. Ước mơ của chúng tôi được sống với vợ/chồng tôi rất giống nhau và hòa hợp.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr15">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">8. Chúng tôi tương thích với vợ/chồng của tôi về tình yêu nên là gì.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr16">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">9. Chúng tôi có cùng quan điểm về việc hạnh phúc trong cuộc sống của chúng tôi với vợ/chồng của tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr17">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">10. Vợ/chồng tôi và tôi có những suy nghĩ giống nhau về cuộc hôn nhân nên như thế nào.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr18">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div><div class='row'>
+                    <div class="col-sm-10">11. Vợ/chồng tôi và tôi có những ý kiến tương tự nhau về vai trò nên có trong hôn nhân.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr19">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">12. Tôi cảm thấy đúng trong các cuộc thảo luận của chúng tôi.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr48">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-sm-10">13. Tôi nghĩ rằng một ngày nào đó trong tương lai, khi nhìn lại, tôi thấy rằng vợ / chồng tôi và tôi đã hòa hợp với nhau.</div>
+                    <div class='col-sm-2'>
+                        <select class="form-control-sm" id="atr11">
+                            <option value="0">Gần như không bao giờ</option>
+                            <option value="1">Đôi khi</option>
+                            <option value="2">Thường thường</option>
+                            <option value="3">Thông thường</option>
+                            <option value="4">Luôn luôn</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h6 id="result" style="text-align: center;">[Kết quả dự đoán]</h6>
+        </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-10">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" role="tab" data-toggle='tab' href="#time">Dành Thời Gian Cho Nhau</a></li>
-                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle='tab' href="#understanding">Hiểu Nhau</a></li>
-                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle='tab' href="#ensemble">Hòa Hợp Nhau</a></li>
-                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle='tab' href="#discussion">Thảo Luận</a></li>
-                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle='tab' href="#viewpoint">Quan Điểm</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-2">
-                <input type="button" class="btn btn-primary" value="Dự Đoán" onclick="predictDivorce();" />
-                <!-- <button class="btn btn-primary" id="myBtn">Dự Đoán</button> -->
-            </div>
-        </div>
-    </div>
-    <div class="container tab-content">
-        <!-- Danh thoi gian cho nhau -->
-        <div id="time" class=" tab-pane fade in active">
-            <div class='row'>
-                <div class="col-sm-10">1. Thời gian tôi dành cho vợ/chồng thật đặc biệt đối với chúng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr5">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">2. Chúng tôi gần như không bao giờ có thời gian ở nhà như là cặp đôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr6">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">3. Tôi tận hưởng kỳ nghỉ của chúng tôi với vợ/chồng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr8">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">4. Tôi thích đi du lịch cùng vợ/chồng.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr9">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hieu nhau -->
-        <div id='understanding' class="tab-pane fade">
-            <div class='row'>
-                <div class="col-sm-10">1. Tôi biết món ăn yêu thích của vợ / chồng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr23">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">2. Tôi có thể nói cho bạn biết loại căng thẳng mà vợ / chồng tôi đang phải đối mặt trong cuộc sống của cô ấy / anh ấy.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr24">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">3. Tôi có kiến ​​thức về thế giới nội tâm của vợ / chồng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr25">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">4. Tôi biết những lo lắng cơ bản của vợ / chồng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr26">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">5. Tôi biết nguồn căng thẳng hiện tại của vợ / chồng tôi là gì.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr27">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">6. Tôi biết hy vọng và mong muốn của vợ / chồng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr28">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">7. Tôi biết chính xác những gì vợ/chồng tôi thích.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr21">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">8. Tôi biết vợ/chồng của tôi muốn được chăm sóc như thế nào khi cô ấy / anh ấy bị ốm.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr22">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hòa hợp nhau -->
-        <div id='ensemble' class='tab-pane fade'>
-            <div class='row'>
-                <div class="col-sm-10">1. Tôi biết bạn bè của vợ / chồng tôi và các mối quan hệ xã hội của họ.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr30">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">2. Tôi biết chúng ta có thể bỏ qua sự khác biệt của mình, ngay cả khi đôi khi mọi thứ trở nên khó khăn.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr2">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">3. Chúng tôi giống như hai người xa lạ có chung môi trường ở nhà hơn là gia đình.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr7">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">4. Hầu hết các mục tiêu của chúng tôi là chung cho vợ / chồng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr10">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">5. Tôi cảm thấy hung hăng khi cãi nhau với vợ / chồng.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr31">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">6. Tôi ghét cách vợ / chồng của tôi mở một chủ đề.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr38">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">7.Khi tôi nói chuyện với vợ/chồng của mình về điều gì đó, sự bình tĩnh của tôi đột nhiên bị phá vỡ.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr41">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">8. Đôi khi tôi nghĩ rằng thật tốt cho tôi khi tôi rời khỏi nhà một thời gian.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr44">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">9. Tôi thà im lặng hơn là cãi vã với vợ / chồng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr45">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">10. Những trận đánh nhau thường xảy ra đột ngột.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr39">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">11. Chúng tôi chỉ bắt đầu một cuộc chiến trước khi tôi biết chuyện gì đang xảy ra.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr40">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">12. ​​46.   Ngay cả khi tôi đúng trong cuộc tranh luận, tôi khát khao không làm mất lòng bên kia.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr46">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">13. Khi tôi thảo luận với vợ/chồng của mình, tôi im lặng vì tôi sợ không thể kiềm chế cơn giận của mình.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr47">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">14. Tôi không liên quan gì đến những gì tôi đã bị buộc tội.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr49">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">15. Tôi biết vợ/chồng của mình rất tốt.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr29">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <!-- Thảo luận -->
-        <div id='discussion' class='tab-pane fade'>
-            <div class='row'>
-                <div class="col-sm-10">1. Nếu một trong số chúng tôi xin lỗi khi cuộc thảo luận của chúng tôi xấu đi, cuộc thảo luận kết thúc.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr1">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">2. Khi chúng tôi cần, chúng tôi có thể trao đổi với vợ / chồng của tôi ngay từ đầu và sửa nó.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr3">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">3. Khi tôi tranh cãi với vợ/chồng tôi, cuối cùng tôi sẽ liên lạc với cô/anh ấy.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr4">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">4. Khi thảo luận với vợ/chồng của tôi, tôi thường sử dụng các thành ngữ như 'Bạn luôn luôn' hoặc 'Bạn không bao giờ'.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr32">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">5. Tôi có thể sử dụng những tuyên bố tiêu cực về tính cách của vợ / chồng tôi trong các cuộc thảo luận của chúng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr33">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">6. Tôi có thể sử dụng các biểu hiện xúc phạm trong các cuộc thảo luận của chúng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr34">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">7. Tôi có thể xúc phạm vợ/chồng của mình trong các cuộc thảo luận của chúng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr35">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">8. Tôi có thể bị sỉ nhục khi chúng tôi thảo luận.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr36">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">9. Cuộc thảo luận của tôi với vợ/chồng của tôi không bình tĩnh.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr37">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">10. Khi tôi tranh cãi với vợ, nó chỉ nổ ra và tôi không nói một lời.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr42">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">11. Tôi chủ yếu muốn làm dịu môi trường một chút.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr43">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">12. Tôi sẽ không ngần ngại nói với vợ / chồng của tôi về sự bất cập của cô ấy / anh ấy.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr52">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">13. Khi trao đổi, tôi nhắc nhở cô/anh ấy về những vấn đề chưa thỏa đáng của vợ/chồng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr53">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">14. Tôi không ngại nói với vợ / chồng mình về sự kém cỏi của anh ấy / cô ấy.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr54">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quan điểm -->
-        <div id='viewpoint' class='tab-pane fade'>
-            <div class='row'>
-                <div class="col-sm-10">1. Tôi thực sự không phải là người có tội về những gì tôi bị buộc tội.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr50">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">2. Tôi không phải là người sai về các vấn đề ở nhà.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr51">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">3. Vợ/chồng tôi và tôi có những giá trị tương đồng nhau về quyền tự do cá nhân.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr12">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">4. Vợ tôi và tôi có những giá trị tương tự về sự tin tưởng.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr20">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">5. Vợ chồng tôi có những trò giải trí giống nhau.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr13">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">6. Hầu hết các mục tiêu của chúng ta đối với mọi người (trẻ em, bạn bè, v.v.) đều giống nhau.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr14">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">7. Ước mơ của chúng tôi được sống với vợ/chồng tôi rất giống nhau và hòa hợp.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr15">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">8. Chúng tôi tương thích với vợ/chồng của tôi về tình yêu nên là gì.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr16">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">9. Chúng tôi có cùng quan điểm về việc hạnh phúc trong cuộc sống của chúng tôi với vợ/chồng của tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr17">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">10. Vợ/chồng tôi và tôi có những suy nghĩ giống nhau về cuộc hôn nhân nên như thế nào.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr18">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div><div class='row'>
-                <div class="col-sm-10">11. Vợ/chồng tôi và tôi có những ý kiến tương tự nhau về vai trò nên có trong hôn nhân.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr19">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">12. Tôi cảm thấy đúng trong các cuộc thảo luận của chúng tôi.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr48">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-            <div class='row'>
-                <div class="col-sm-10">13. Tôi nghĩ rằng một ngày nào đó trong tương lai, khi nhìn lại, tôi thấy rằng vợ / chồng tôi và tôi đã hòa hợp với nhau.</div>
-                <div class='col-sm-2'>
-                    <select class="form-control-sm" id="atr11">
-                        <option value="0">Gần như không bao giờ</option>
-                        <option value="1">Đôi khi</option>
-                        <option value="2">Thường thường</option>
-                        <option value="3">Thông thường</option>
-                        <option value="4">Luôn luôn</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <h6 id="result" style="text-align: center;">[Kết quả dự đoán]</h6>
-    </div>
+    <footer>
+        &copy 2020 tinhtranghonnhan.herokuapp.com  | <a href="http://www.designbootstrap.com/" target="_blank">by LamTranXuan</a>
+    </footer>
+    <!--FOOTER SECTION END  -->
 
     <script src="divorce.js" type="text/javascript"></script>
 
