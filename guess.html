@@ -365,7 +365,7 @@
                 </div>
             </div>
             <div class='row'>
-                <div class="col-8">12. ​​46.   Ngay cả khi tôi đúng trong cuộc tranh luận, tôi khát khao không làm mất lòng bên kia.</div>
+                <div class="col-8">12. ​​Ngay cả khi tôi đúng trong cuộc tranh luận, tôi khát khao không làm mất lòng bên kia.</div>
                 <div class='col-4'>
                     <select class="form-control-sm" id="atr46">
                         <option value="0">Gần như không bao giờ</option>
@@ -649,7 +649,7 @@
                 </div>
             </div>
             <div class='row'>
-                <div class="col-8">6. Hầu hết các mục tiêu của chúng ta đối với mọi người (trẻ em, bạn bè, v.v.) đều giống nhau.</div>
+                <div class="col-8">6. Hầu hết các mục tiêu của chúng ta đối với mọi người (trẻ em, bạn bè,...) đều giống nhau.</div>
                 <div class='col-4'>
                     <select class="form-control-sm" id="atr14">
                         <option value="0">Gần như không bao giờ</option>
@@ -836,6 +836,7 @@
                 //Tìm k điểm gần nhất
                 nearestNeighbours(item, k)
                 {
+                	// console.log("nearestNeighbours function");
                 	// console.log(item);
                     if (k > this.data.length)
                     {
@@ -852,6 +853,7 @@
                         for (let i = 1; i < this.data.length; i++)
                         {
                             let elt = this.data[i];
+                            // console.log("elt = " + elt);
                             
                             if (this.distanceFunction(elt, item) < this.distanceFunction(nearest, item) && nn.indexOf(elt) < 0)
                             {
@@ -871,7 +873,9 @@
                 
                 //Phân lớp
                 classify(item, k = 5)
-                {   //Mảng k điểm gần nhất
+                {   
+                	// console.log("classify function");
+                	//Mảng k điểm gần nhất
                     let nn = this.nearestNeighbours(item, k);
                     
                     //Lưu số lượng trùng của mỗi class
@@ -995,7 +999,6 @@
             function createObject()
             {
             	return {
-                	// at1=0,at2=0,at3=0,at4=0,at5=0,at6=0,at7=0,at8=0,at9=0,at10=0,at11=0,at12=0,at13=0,at14=0,at15=0,at16=0,at17=0,at18=0,at19=0,at20=0,at21=0,at22=0,at23=0,at24=0,at25=0,at26=0,at27=0,at28=0,at29=0,at30=0,at31=0,at32=0,at33=0,at34=0,at35=0,at36=0,at37=0,at38=0,at39=0,at40=0,at41=0,at42=0,at43=0,at44=0,at45=0,at46=0,at47=0,at48=0,at49=0,at50=0,at51=0,at52=0,at53=0,at54=0
                     class: "Pending",
                     properties: {
                         atr1: parseFloat(atr1.value),
@@ -1059,7 +1062,6 @@
 
             // function createObject(at1,at2,at3,at4,at5,at6,at7,at8,at9,at10,at11,at12,at13,at14,at15,at16,at17,at18,at19,at20,at21,at22,at23,at24,at25,at26,at27,at28,at29,at30,at31,at32,at33,at34,at35,at36,at37,at38,at39,at40,at41,at42,at43,at44,at45,at46,at47,at48,at49,at50,at51,at52,at53,at54)
             // {
-            // 	console.log(at1);
             //     return {
             //         class: "Pending",
             //         properties: {
@@ -1125,8 +1127,9 @@
             {
                 // let item = createObject(2,2,4,1,0,0,0,0,0,0,1,0,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,2,1,2,0,1,2,1,3,3,2,1,1,2,3,2,1,3,3,3,2,3,2,1); //class 1
                 // let item = createObject(0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,1); //class 0
+                // let item = createObject(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
-
+                // console.log("Tạo objects");
                 let item = createObject();
 
                 predictDivorceclass = c.classify(item);
