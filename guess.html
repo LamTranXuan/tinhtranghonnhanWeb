@@ -84,7 +84,7 @@
                 <div class="col-8">1. Thời gian tôi dành cho vợ/chồng thật đặc biệt đối với chúng tôi.</div>
                 <div class='col-4'>
                     <select class="form-control-sm" id="atr5">
-                        <option value="0">Gần như không bao giờ</option>
+                        <option default value="0">Gần như không bao giờ</option>
                         <option value="1">Đôi khi</option>
                         <option value="2">Thường thường</option>
                         <option value="3">Thông thường</option>
@@ -420,7 +420,7 @@
                 <div class="col-8">1. Nếu một trong số chúng tôi xin lỗi khi cuộc thảo luận của chúng tôi xấu đi, cuộc thảo luận kết thúc.</div>
                 <div class='col-4'>
                     <select class="form-control-sm" id="atr1">
-                        <option value="0">Gần như không bao giờ</option>
+                        <option default value="0">Gần như không bao giờ</option>
                         <option value="1">Đôi khi</option>
                         <option value="2">Thường thường</option>
                         <option value="3">Thông thường</option>
@@ -492,7 +492,7 @@
                 <div class="col-8">7. Tôi có thể xúc phạm vợ/chồng của mình trong các cuộc thảo luận của chúng tôi.</div>
                 <div class='col-4'>
                     <select class="form-control-sm" id="atr35">
-                        <option value="0">Gần như không bao giờ</option>
+                        <option select="selected" value="0">Gần như không bao giờ</option>
                         <option value="1">Đôi khi</option>
                         <option value="2">Thường thường</option>
                         <option value="3">Thông thường</option>
@@ -836,6 +836,7 @@
                 //Tìm k điểm gần nhất
                 nearestNeighbours(item, k)
                 {
+                	// console.log(item);
                     if (k > this.data.length)
                     {
                         console.error("k is greater than dataset's size");
@@ -853,12 +854,15 @@
                             let elt = this.data[i];
                             
                             if (this.distanceFunction(elt, item) < this.distanceFunction(nearest, item) && nn.indexOf(elt) < 0)
-                            {   
+                            {
+                            	// console.log("Khoang cach elt den item: " + this.distanceFunction(elt, item));   
+                            	// console.log("Khoang cach elt den item: " + this.distanceFunction(nearest, item));
+                            	// console.log(i);
                                 nearest = elt;
                             }
                         }
                         //Thêm điểm gần nhất mới không trùng vào mảng
-                        console.log(nearest);
+                        // console.log(nearest);
                         nn.push(nearest);
                     }
                     
@@ -990,7 +994,8 @@
             
             function createObject()
             {
-                return {
+            	return {
+                	// at1=0,at2=0,at3=0,at4=0,at5=0,at6=0,at7=0,at8=0,at9=0,at10=0,at11=0,at12=0,at13=0,at14=0,at15=0,at16=0,at17=0,at18=0,at19=0,at20=0,at21=0,at22=0,at23=0,at24=0,at25=0,at26=0,at27=0,at28=0,at29=0,at30=0,at31=0,at32=0,at33=0,at34=0,at35=0,at36=0,at37=0,at38=0,at39=0,at40=0,at41=0,at42=0,at43=0,at44=0,at45=0,at46=0,at47=0,at48=0,at49=0,at50=0,at51=0,at52=0,at53=0,at54=0
                     class: "Pending",
                     properties: {
                         atr1: parseFloat(atr1.value),
@@ -1048,84 +1053,88 @@
                         atr53: parseFloat(atr53.value),
                         atr54: parseFloat(atr54.value)
                     }
+
                 };
             }
 
-            function createObject(at1,at2,at3,at4,at5,at6,at7,at8,at9,at10,at11,at12,at13,at14,at15,at16,at17,at18,at19,at20,at21,at22,at23,at24,at25,at26,at27,at28,at29,at30,at31,at32,at33,at34,at35,at36,at37,at38,at39,at40,at41,at42,at43,at44,at45,at46,at47,at48,at49,at50,at51,at52,at53,at54)
-            {
-                return {
-                    class: "Pending",
-                    properties: {
-                        atr1: at1,
-                        atr2: at2,
-                        atr3: at3,
-                        atr4: at4,
-                        atr5: at5,
-                        atr6: at6,
-                        atr7: at7,
-                        atr8: at8,
-                        atr9: at9,
-                        atr10: at10,
-                        atr11: at11,
-                        atr12: at12,
-                        atr13: at13,
-                        atr14: at14,
-                        atr15: at15,
-                        atr16: at16,
-                        atr17: at17,
-                        atr18: at18,
-                        atr19: at19,
-                        atr20: at20,
-                        atr21: at21,
-                        atr22: at22,
-                        atr23: at23,
-                        atr24: at24,
-                        atr25: at25,
-                        atr26: at26,
-                        atr27: at27,
-                        atr28: at28,
-                        atr29: at29,
-                        atr30: at30,
-                        atr31: at31,
-                        atr32: at32,
-                        atr33: at33,
-                        atr34: at34,
-                        atr35: at35,
-                        atr36: at36,
-                        atr37: at37,
-                        atr38: at38,
-                        atr39: at39,
-                        atr40: at40,
-                        atr41: at41,
-                        atr42: at42,
-                        atr43: at43,
-                        atr44: at44,
-                        atr45: at45,
-                        atr46: at46,
-                        atr47: at47,
-                        atr48: at48,
-                        atr49: at49,
-                        atr50: at50,
-                        atr51: at51,
-                        atr52: at52,
-                        atr53: at53,
-                        atr54: at54
-                    }
-                };
-            }
+            // function createObject(at1,at2,at3,at4,at5,at6,at7,at8,at9,at10,at11,at12,at13,at14,at15,at16,at17,at18,at19,at20,at21,at22,at23,at24,at25,at26,at27,at28,at29,at30,at31,at32,at33,at34,at35,at36,at37,at38,at39,at40,at41,at42,at43,at44,at45,at46,at47,at48,at49,at50,at51,at52,at53,at54)
+            // {
+            // 	console.log(at1);
+            //     return {
+            //         class: "Pending",
+            //         properties: {
+            //             atr1: at1,
+            //             atr2: at2,
+            //             atr3: at3,
+            //             atr4: at4,
+            //             atr5: at5,
+            //             atr6: at6,
+            //             atr7: at7,
+            //             atr8: at8,
+            //             atr9: at9,
+            //             atr10: at10,
+            //             atr11: at11,
+            //             atr12: at12,
+            //             atr13: at13,
+            //             atr14: at14,
+            //             atr15: at15,
+            //             atr16: at16,
+            //             atr17: at17,
+            //             atr18: at18,
+            //             atr19: at19,
+            //             atr20: at20,
+            //             atr21: at21,
+            //             atr22: at22,
+            //             atr23: at23,
+            //             atr24: at24,
+            //             atr25: at25,
+            //             atr26: at26,
+            //             atr27: at27,
+            //             atr28: at28,
+            //             atr29: at29,
+            //             atr30: at30,
+            //             atr31: at31,
+            //             atr32: at32,
+            //             atr33: at33,
+            //             atr34: at34,
+            //             atr35: at35,
+            //             atr36: at36,
+            //             atr37: at37,
+            //             atr38: at38,
+            //             atr39: at39,
+            //             atr40: at40,
+            //             atr41: at41,
+            //             atr42: at42,
+            //             atr43: at43,
+            //             atr44: at44,
+            //             atr45: at45,
+            //             atr46: at46,
+            //             atr47: at47,
+            //             atr48: at48,
+            //             atr49: at49,
+            //             atr50: at50,
+            //             atr51: at51,
+            //             atr52: at52,
+            //             atr53: at53,
+            //             atr54: at54
+            //         }
+            //     };
+            // }
             
             function predictDivorce()
             {
                 // let item = createObject(2,2,4,1,0,0,0,0,0,0,1,0,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,2,1,2,0,1,2,1,3,3,2,1,1,2,3,2,1,3,3,3,2,3,2,1); //class 1
                 // let item = createObject(0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,1); //class 0
 
+
                 let item = createObject();
-                
+
                 predictDivorceclass = c.classify(item);
                 
                 result.innerHTML = (predictDivorceclass == 0) ?  "Chúc mừng! Tình trạng hôn nhân của bạn và " 
                 + "người ấy vẫn còn tốt, hãy cố gắng vun đắp cho tốt hơn nữa nhé :)" 
-                : "Lưu ý! Tình trạng hôn nhân của bạn và người ấy khá xấu, có thể dẫn tới ly hôn!";                
+                : "Lưu ý! Tình trạng hôn nhân của bạn và người ấy khá xấu, có thể dẫn tới ly hôn!";      
+        
             }
 
         </script>
